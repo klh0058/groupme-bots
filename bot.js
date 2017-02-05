@@ -54,8 +54,8 @@ function postMessage() {
       console.log('timeout posting message '  + JSON.stringify(err));
     });
     botReq.end(JSON.stringify(body));
-    sleep(1000);
-    fakTrue = false;
+    sleep(5000);
+    //fakTrue = false;
   }
 }
 
