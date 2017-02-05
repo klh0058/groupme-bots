@@ -5,11 +5,11 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/fak$/;
+      botRegex = /^\Fak$/;
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
-    postMessage();
+    postMessage(botRegex);
     this.res.end();
   } else {
     console.log("don't care");
@@ -18,10 +18,10 @@ function respond() {
   }
 }
 
-function postMessage() {
+function postMessage(botRegexIn) {
   var botResponse, options, body, botReq;
 
-  botResponse = "/fak";
+  botResponse = "Fak";
 
   options = {
     hostname: 'api.groupme.com',
