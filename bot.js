@@ -11,9 +11,10 @@ function respond() {
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     fakTrue = true;
-    //while(fakTrue) {
+    while(fakTrue == true) {
       postMessage();
-    //}
+      sleep(1000);
+    }
     this.res.end();
   } else {
     console.log("don't care");
@@ -55,6 +56,15 @@ function postMessage() {
     console.log('timeout posting message '  + JSON.stringify(err));
   });
   botReq.end(JSON.stringify(body));
+}
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
 }
 
 
