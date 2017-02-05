@@ -12,6 +12,7 @@ function respond() {
     this.res.writeHead(200);
     fakTrue = true;
     while (fakTrue == true) {
+      sleep(1000);
       postMessage();
       this.res.end();
     }
