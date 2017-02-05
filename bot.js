@@ -1,25 +1,23 @@
 var HTTPS = require('https');
 var cool = "yeah im cool";
-var fakTrue = false;
+var fakTrue = true;
 
 var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/Fak$/;
-
-  if(request.text && botRegex.test(request.text)) {
-    this.res.writeHead(200);
-    fakTrue = true;
-    while (fakTrue == true) {
-      sleep(1000);
+  
+  while(fakTrue == true) {
+    if(request.text && botRegex.test(request.text)) {
+      this.res.writeHead(200);
       postMessage();
       this.res.end();
+    } else {
+      console.log("don't care");
+      this.res.writeHead(200);
+      this.res.end();
     }
-  } else {
-    console.log("don't care");
-    this.res.writeHead(200);
-    this.res.end();
   }
 }
 
