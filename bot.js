@@ -11,8 +11,10 @@ function respond() {
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     fakTrue = true;
-    postMessage();
-    this.res.end();
+    while (fakTrue == true) {
+      postMessage();
+      this.res.end();
+    }
   } else {
     console.log("don't care");
     this.res.writeHead(200);
@@ -25,7 +27,6 @@ function postMessage() {
 
   botResponse = "fak";
   
-  while(fakTrue == true) {
     options = {
       hostname: 'api.groupme.com',
       path: '/v3/bots/post',
@@ -54,9 +55,7 @@ function postMessage() {
       console.log('timeout posting message '  + JSON.stringify(err));
     });
     botReq.end(JSON.stringify(body));
-    sleep(5000);
     //fakTrue = false;
-  }
 }
 
 function sleep(milliseconds) {
