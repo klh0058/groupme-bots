@@ -1,5 +1,6 @@
 var HTTPS = require('https');
 var cool = "yeah im cool";
+var fakTrue = false;
 
 var botID = process.env.BOT_ID;
 
@@ -9,7 +10,10 @@ function respond() {
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(botRegex);
+    fakTrue = true;
+    while(fakTrue) {
+      postMessage(botRegex);
+    }
     this.res.end();
   } else {
     console.log("don't care");
