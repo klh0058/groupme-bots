@@ -8,7 +8,7 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/Fak$/;
   
-  while(fakTrue == true) {
+  //while(fakTrue == true) {
     if(request.text && botRegex.test(request.text)) {
       this.res.writeHead(200);
       postMessage();
@@ -18,8 +18,8 @@ function respond() {
       this.res.writeHead(200);
       this.res.end();
     }
-    sleep(5000);
-  }
+    //sleep(5000);
+  //}
 }
 
 function postMessage() {
