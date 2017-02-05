@@ -12,7 +12,7 @@ function respond() {
     this.res.writeHead(200);
     fakTrue = true;
     while(fakTrue) {
-      postMessage(botRegex);
+      postMessage();
     }
     this.res.end();
   } else {
@@ -22,7 +22,7 @@ function respond() {
   }
 }
 
-function postMessage(botRegexIn) {
+function postMessage() {
   var botResponse, options, body, botReq;
 
   botResponse = "Fak";
