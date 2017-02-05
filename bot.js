@@ -55,6 +55,7 @@ function postMessage() {
     });
     botReq.end(JSON.stringify(body));
     sleep(1000);
+    fakTrue = false;
   }
 }
 
