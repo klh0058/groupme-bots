@@ -18,6 +18,7 @@ function respond() {
       this.res.writeHead(200);
       this.res.end();
     }
+    sleep(5000);
   }
 }
 
